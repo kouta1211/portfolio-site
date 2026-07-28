@@ -43,3 +43,9 @@ npm run dev
 
 [Vercel](https://vercel.com)へのデプロイを前提とした構成。追加設定なしでNext.js
 プロジェクトとして自動検出される。
+
+## 開発フロー
+
+`main`ブランチはブランチ保護により直接pushできない。変更はfeatureブランチを
+切ってpush → Pull Request作成 → GitHub Actions(lint/test/build)通過後にマージ
+する。
