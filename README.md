@@ -1,16 +1,28 @@
 # portfolio-site
 
-個人ポートフォリオサイト。Next.js (App Router) + TypeScript + Tailwind CSSで構築。
+個人ポートフォリオサイト。Next.js (App Router) + TypeScript + Chakra UIで構築。
 
 ## 技術スタック
 
 - [Next.js](https://nextjs.org) 16 (App Router, Turbopack)
 - TypeScript
-- Tailwind CSS
+- [Chakra UI](https://chakra-ui.com) v3
 - ESLint (`eslint-config-next`)
 - Prettier
 - Vitest + Testing Library
 - Husky + lint-staged
+
+## ディレクトリ構成
+
+`src/components/`はAtomic Designで構成:
+
+- `atoms/` — 最小単位の部品(`TechBadge`, `ScreenshotPlaceholder`)
+- `molecules/` — atomsを組み合わせた部品(`ProjectCard`)
+- `organisms/` — 業務ロジックを持つ複合的な部品(`Header`, `Footer`, `Hero`)
+- `ui/` — Chakra CLIが生成したスニペット(`provider`, `color-mode`)。編集しない
+
+ページ(`src/app/**/page.tsx`)はorganisms/moleculesを組み立てるだけの薄い実装
+にする。
 
 ## セットアップ
 

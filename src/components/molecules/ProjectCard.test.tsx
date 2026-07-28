@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { Provider } from '@/components/ui/provider';
 import { ProjectCard } from './ProjectCard';
 import type { Project } from '@/lib/projects';
 
@@ -12,7 +13,11 @@ const project: Project = {
 
 describe('ProjectCard', () => {
   it('renders the project name, tech badges, and detail link', () => {
-    render(<ProjectCard project={project} />);
+    render(
+      <Provider>
+        <ProjectCard project={project} />
+      </Provider>
+    );
     expect(screen.getByText('サンプルプロジェクト')).toBeInTheDocument();
     expect(screen.getByText('Next.js')).toBeInTheDocument();
     expect(screen.getByText('TypeScript')).toBeInTheDocument();

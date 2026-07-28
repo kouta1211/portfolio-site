@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { Box, Flex } from '@chakra-ui/react';
+import { Provider } from '@/components/ui/provider';
+import { Header } from '@/components/organisms/Header';
+import { Footer } from '@/components/organisms/Footer';
 import './globals.css';
 
 const geistSans = Geist({
@@ -28,12 +30,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">
-        <Header />
-        <main className="flex flex-1 flex-col">{children}</main>
-        <Footer />
+      <body>
+        <Provider>
+          <Flex minH="100vh" direction="column">
+            <Header />
+            <Box as="main" flex="1" display="flex" flexDirection="column">
+              {children}
+            </Box>
+            <Footer />
+          </Flex>
+        </Provider>
       </body>
     </html>
   );
