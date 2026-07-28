@@ -6,6 +6,13 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Chakra UI CLIが生成するsnippetなので編集しない。生成コードそのままのルールで通す。
+  {
+    files: ['src/components/ui/**'],
+    rules: {
+      '@typescript-eslint/no-empty-object-type': 'off',
+    },
+  },
   // Prettierと競合するスタイルルールを無効化するため、必ず最後に置く。
   eslintConfigPrettier,
   // Override default ignores of eslint-config-next.
