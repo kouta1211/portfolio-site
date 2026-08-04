@@ -11,20 +11,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'meishi-app',
-    name: '名刺アプリ',
-    tagline: '名前・自己紹介・得意技術を1つのURLで共有できるデジタル名刺アプリ',
-    techStack: [
-      'Vite',
-      'React',
-      'TypeScript',
-      'Chakra UI',
-      'React Router',
-      'TanStack Query',
-      'Supabase',
-    ],
-  },
-  {
     slug: 'payment-optimizer',
     name: 'キャッシュレス決済最適化アプリ',
     tagline:
@@ -54,6 +40,21 @@ export const projects: Project[] = [
       'Vitest',
     ],
   },
+  {
+    slug: 'meishi-app',
+    name: '名刺アプリ',
+    tagline: '名前・自己紹介・得意技術を1つのURLで共有できるデジタル名刺アプリ',
+    techStack: [
+      'Vite',
+      'React',
+      'TypeScript',
+      'Chakra UI',
+      'React Router',
+      'TanStack Query',
+      'Supabase',
+    ],
+  },
+
   {
     slug: 'tech-blog',
     name: 'Tech Blog',
