@@ -20,9 +20,8 @@ export function Header() {
       top="0"
       zIndex="sticky"
       borderBottomWidth="1px"
-      borderColor="border/60"
-      bg="bg/70"
-      backdropFilter="blur(10px)"
+      borderColor="border"
+      bg="bg"
     >
       <Flex
         maxW="3xl"
@@ -45,7 +44,12 @@ export function Header() {
                 fontWeight={isActive ? 'semibold' : 'normal'}
                 color={isActive ? 'brand.fg' : undefined}
               >
-                <NextLink href={navLink.href}>{navLink.label}</NextLink>
+                <NextLink
+                  href={navLink.href}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {navLink.label}
+                </NextLink>
               </Link>
             );
           })}

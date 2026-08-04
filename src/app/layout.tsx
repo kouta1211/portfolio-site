@@ -4,7 +4,6 @@ import { Box, Flex } from '@chakra-ui/react';
 import { Provider } from '@/components/ui/provider';
 import { Header } from '@/components/organisms/Header';
 import { Footer } from '@/components/organisms/Footer';
-import { PageBackground } from '@/components/atoms/PageBackground';
 import './globals.css';
 
 const geistSans = Geist({
@@ -36,8 +35,7 @@ export default function RootLayout({
     >
       <body>
         <Provider>
-          <PageBackground />
-          <Flex minH="100vh" direction="column" position="relative" zIndex="1">
+          <Flex minH="100vh" direction="column">
             <Header />
             <Box as="main" flex="1" display="flex" flexDirection="column">
               {children}
