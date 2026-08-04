@@ -3,10 +3,11 @@ export type Project = {
   name: string;
   tagline: string;
   techStack: string[];
-  // 実スクリーンショットを用意したら public/screenshots/ に配置しここに指定する(例: '/screenshots/meishi-app.png')
-  screenshotSrc?: string;
+  // 実スクリーンショットを用意したら public/screenshots/ に配置しここに指定する(例: ['/screenshots/meishi-app-1.png'])
+  screenshots?: string[];
   // 開発中でGitHub未公開・未デプロイのプロジェクトに付ける
   inProgress?: boolean;
+  repoUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -24,6 +25,15 @@ export const projects: Project[] = [
       'TanStack Query',
       'Supabase',
     ],
+    screenshots: [
+      '/screenshots/payment-optimizer-6.png',
+      '/screenshots/payment-optimizer-7.png',
+      '/screenshots/payment-optimizer-1.png',
+      '/screenshots/payment-optimizer-2.png',
+      '/screenshots/payment-optimizer-3.png',
+      '/screenshots/payment-optimizer-5.png',
+    ],
+    repoUrl: 'https://github.com/kouta1211/payment-optimizer',
   },
   {
     slug: 'study-record-app',
@@ -39,6 +49,8 @@ export const projects: Project[] = [
       'React Hook Form',
       'Vitest',
     ],
+    screenshots: ['/screenshots/study-record-app-1.png'],
+    repoUrl: 'https://github.com/kouta1211/studyRecord-application',
   },
   {
     slug: 'meishi-app',
@@ -53,6 +65,12 @@ export const projects: Project[] = [
       'TanStack Query',
       'Supabase',
     ],
+    screenshots: [
+      '/screenshots/meishi-app-1.png',
+      '/screenshots/meishi-app-2.png',
+      '/screenshots/meishi-app-3.png',
+    ],
+    repoUrl: 'https://github.com/kouta1211/meishi-application',
   },
 
   {
@@ -61,5 +79,10 @@ export const projects: Project[] = [
     tagline: 'QiitaとmicroCMSの記事をまとめて表示する個人テックブログ(開発中)',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'axios'],
     inProgress: true,
+    screenshots: [
+      '/screenshots/tech-blog-1.png',
+      '/screenshots/tech-blog-2.png',
+    ],
+    repoUrl: 'https://github.com/kouta1211/tech_blog',
   },
 ];

@@ -4,7 +4,7 @@ import { Provider } from '@/components/ui/provider';
 import StudyRecordAppPage from './page';
 
 describe('StudyRecordAppPage', () => {
-  it('renders the title and section headings', () => {
+  it('renders the title and all section headings', () => {
     render(
       <Provider>
         <StudyRecordAppPage />
@@ -16,5 +16,6 @@ describe('StudyRecordAppPage', () => {
     ).toBeInTheDocument();
     expect(screen.getByText('概要')).toBeInTheDocument();
     expect(screen.getByText('工夫した点')).toBeInTheDocument();
+    expect(screen.getByText('つまずいた点と解決策')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,13 @@
-import { Badge, Box, Code, Heading, Stack, Text, Wrap } from '@chakra-ui/react';
+import {
+  Badge,
+  Box,
+  Code,
+  Heading,
+  Link,
+  Stack,
+  Text,
+  Wrap,
+} from '@chakra-ui/react';
 import { TechBadge } from '@/components/atoms/TechBadge';
 import { ProjectScreenshot } from '@/components/atoms/ProjectScreenshot';
 import { PageContainer } from '@/components/atoms/PageContainer';
@@ -25,13 +34,22 @@ export default function TechBlogPage() {
               <TechBadge key={tech} label={tech} />
             ))}
           </Wrap>
+          <Link
+            href={project.repoUrl!}
+            target="_blank"
+            rel="noopener noreferrer"
+            w="fit-content"
+            fontWeight="medium"
+          >
+            GitHubで見る
+          </Link>
         </Stack>
       </Reveal>
 
       <Reveal delay={0.1}>
         <ProjectScreenshot
           label={project.name}
-          src={project.screenshotSrc}
+          images={project.screenshots}
           alt={`${project.name}の画面`}
         />
       </Reveal>
