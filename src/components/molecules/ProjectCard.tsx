@@ -13,6 +13,12 @@ export function ProjectCard({ project }: { project: Project }) {
       display="flex"
       flexDirection="column"
       gap="3"
+      transition="all 0.2s ease-out"
+      _hover={{
+        transform: 'translateY(-6px)',
+        borderColor: 'brand.400',
+        shadow: 'lg',
+      }}
     >
       <Heading size="lg">{project.name}</Heading>
       <Text color="fg.muted">{project.tagline}</Text>

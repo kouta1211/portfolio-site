@@ -7,6 +7,7 @@
 - [Next.js](https://nextjs.org) 16 (App Router, Turbopack)
 - TypeScript
 - [Chakra UI](https://chakra-ui.com) v3
+- [Motion](https://motion.dev)(`motion/react`) — スクロール連動のフェードイン等のアニメーション
 - ESLint (`eslint-config-next`)
 - Prettier
 - Vitest + Testing Library
@@ -16,10 +17,12 @@
 
 `src/components/`はAtomic Designで構成:
 
-- `atoms/` — 最小単位の部品(`TechBadge`, `ScreenshotPlaceholder`)
+- `atoms/` — 最小単位の部品(`TechBadge`, `ScreenshotPlaceholder`, `PageContainer`,
+  `Reveal`, `HeroBackground`)
 - `molecules/` — atomsを組み合わせた部品(`ProjectCard`)
 - `organisms/` — 業務ロジックを持つ複合的な部品(`Header`, `Footer`, `Hero`)
-- `ui/` — Chakra CLIが生成したスニペット(`provider`, `color-mode`)。編集しない
+- `ui/` — Chakra CLIが生成したスニペット(`provider`, `color-mode`)。編集しない。
+  `theme.ts`はブランドカラーのカスタムテーマ定義(CLI生成物ではないが同じ場所に配置)
 
 ページ(`src/app/**/page.tsx`)はorganisms/moleculesを組み立てるだけの薄い実装
 にする。
