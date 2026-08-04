@@ -1,4 +1,4 @@
-import { Box, Code, Heading, Stack, Text, Wrap } from '@chakra-ui/react';
+import { Box, Code, Heading, Link, Stack, Text, Wrap } from '@chakra-ui/react';
 import { TechBadge } from '@/components/atoms/TechBadge';
 import { ProjectScreenshot } from '@/components/atoms/ProjectScreenshot';
 import { PageContainer } from '@/components/atoms/PageContainer';
@@ -20,13 +20,22 @@ export default function StudyRecordAppPage() {
               <TechBadge key={tech} label={tech} />
             ))}
           </Wrap>
+          <Link
+            href={project.repoUrl!}
+            target="_blank"
+            rel="noopener noreferrer"
+            w="fit-content"
+            fontWeight="medium"
+          >
+            GitHubで見る
+          </Link>
         </Stack>
       </Reveal>
 
       <Reveal delay={0.1}>
         <ProjectScreenshot
           label={project.name}
-          src={project.screenshotSrc}
+          images={project.screenshots}
           alt={`${project.name}の画面`}
         />
       </Reveal>
@@ -72,6 +81,33 @@ export default function StudyRecordAppPage() {
               Vitest + Testing Library + user-eventで、ローディング表示・
               一覧表示・新規登録・バリデーションエラー・削除・編集まで
               カバーするテストを作成した
+            </Box>
+          </Box>
+        </Stack>
+      </Reveal>
+
+      <Reveal delay={0.1}>
+        <Stack gap="2">
+          <Heading size="lg">つまずいた点と解決策</Heading>
+          <Box
+            as="ul"
+            listStyleType="disc"
+            pl="5"
+            display="flex"
+            flexDirection="column"
+            gap="2"
+            color="fg.muted"
+          >
+            <Box as="li">
+              デモで新規登録・一覧表示が突然反応しなくなり、原因調査の結果
+              Supabaseの無料プランは一定期間APIアクセスがないとプロジェクトが
+              自動的に一時停止され、URLごとDNS解決できなくなる仕様だと判明した
+            </Box>
+            <Box as="li">
+              調査中、一覧取得のエラーハンドリングが<Code>console.error</Code>
+              に握りつぶすだけの実装だったため、失敗しているのに「0件の
+              空リスト」に見えてしまい原因特定を難しくしていた。この経験から、
+              失敗を握りつぶさずユーザーに通知することの重要性を学んだ
             </Box>
           </Box>
         </Stack>

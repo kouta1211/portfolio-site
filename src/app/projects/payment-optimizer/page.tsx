@@ -6,7 +6,6 @@ import { Reveal } from '@/components/atoms/Reveal';
 import { projects } from '@/lib/projects';
 
 const project = projects.find((p) => p.slug === 'payment-optimizer')!;
-const liveUrl = 'https://payment-optimizer-snowy.vercel.app/login';
 
 export default function PaymentOptimizerPage() {
   return (
@@ -22,13 +21,13 @@ export default function PaymentOptimizerPage() {
             ))}
           </Wrap>
           <Link
-            href={liveUrl}
+            href={project.repoUrl!}
             target="_blank"
             rel="noopener noreferrer"
             w="fit-content"
             fontWeight="medium"
           >
-            公開URLを見る
+            GitHubで見る
           </Link>
         </Stack>
       </Reveal>
@@ -36,7 +35,7 @@ export default function PaymentOptimizerPage() {
       <Reveal delay={0.1}>
         <ProjectScreenshot
           label={project.name}
-          src={project.screenshotSrc}
+          images={project.screenshots}
           alt={`${project.name}の画面`}
         />
       </Reveal>

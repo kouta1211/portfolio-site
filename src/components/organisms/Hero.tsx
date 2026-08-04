@@ -31,7 +31,7 @@ export function Hero() {
               （まつもと こうた）
             </Text>
             <Text fontSize="lg" color="fg.muted" maxW="xl">
-              フロントエンド/フルスタック開発を学習中のエンジニア —
+              フロントエンド/フルスタック開発を学習中のエンジニア <br />
               小規模な案件でお力になれればと思っています
             </Text>
             <Stack direction="row" gap="4" pt="4">
