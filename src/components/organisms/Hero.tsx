@@ -3,15 +3,13 @@
 import NextLink from 'next/link';
 import { Box, Button, Heading, Stack, Text } from '@chakra-ui/react';
 import { motion, useReducedMotion } from 'motion/react';
-import { HeroBackground } from '@/components/atoms/HeroBackground';
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Box position="relative" py="24" px="6" overflow="hidden">
-      <HeroBackground />
-      <Box asChild position="relative" zIndex="1">
+    <Box py="24" px="6">
+      <Box asChild>
         <motion.div
           initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

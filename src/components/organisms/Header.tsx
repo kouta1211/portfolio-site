@@ -20,9 +20,9 @@ export function Header() {
       top="0"
       zIndex="sticky"
       borderBottomWidth="1px"
-      borderColor="border"
-      bg="bg/80"
-      backdropFilter="blur(8px)"
+      borderColor="border/60"
+      bg="bg/70"
+      backdropFilter="blur(10px)"
     >
       <Flex
         maxW="3xl"
