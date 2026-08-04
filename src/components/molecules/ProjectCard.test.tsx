@@ -25,5 +25,16 @@ describe('ProjectCard', () => {
       'href',
       '/projects/sample-project'
     );
+    expect(screen.queryByText('開発中')).not.toBeInTheDocument();
+  });
+
+  it('shows an in-progress badge when the project is marked as inProgress', () => {
+    render(
+      <Provider>
+        <ProjectCard project={{ ...project, inProgress: true }} />
+      </Provider>
+    );
+
+    expect(screen.getByText('開発中')).toBeInTheDocument();
   });
 });

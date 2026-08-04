@@ -2,6 +2,16 @@
 
 個人ポートフォリオサイト。Next.js (App Router) + TypeScript + Chakra UIで構築。
 
+## 掲載しているプロジェクト
+
+- [名刺アプリ](https://github.com/kouta1211/meishi-application)
+- [キャッシュレス決済最適化アプリ](https://github.com/kouta1211/payment-optimizer)
+- [学習記録アプリ](https://github.com/kouta1211/studyRecord-application)
+- Tech Blog — 開発中のため、GitHubリポジトリは未公開・未デプロイ
+
+各プロジェクトの詳細は`/projects`以下の各ページ、または上記GitHubリポジトリの
+READMEを参照。
+
 ## 技術スタック
 
 - [Next.js](https://nextjs.org) 16 (App Router, Turbopack)
@@ -17,8 +27,8 @@
 
 `src/components/`はAtomic Designで構成:
 
-- `atoms/` — 最小単位の部品(`TechBadge`, `ScreenshotPlaceholder`, `PageContainer`,
-  `Reveal`, `HeroBackground`)
+- `atoms/` — 最小単位の部品(`TechBadge`, `ProjectScreenshot`, `PageContainer`,
+  `Reveal`, `Card`, `LinkButton`)
 - `molecules/` — atomsを組み合わせた部品(`ProjectCard`)
 - `organisms/` — 業務ロジックを持つ複合的な部品(`Header`, `Footer`, `Hero`)
 - `ui/` — Chakra CLIが生成したスニペット(`provider`, `color-mode`)。編集しない。
