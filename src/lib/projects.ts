@@ -3,6 +3,8 @@ export type Project = {
   name: string;
   tagline: string;
   techStack: string[];
+  // 実スクリーンショットを用意したら public/screenshots/ に配置しここに指定する(例: '/screenshots/meishi-app.png')
+  screenshotSrc?: string;
 };
 
 export const projects: Project[] = [

@@ -1,8 +1,8 @@
 'use client';
 
-import NextLink from 'next/link';
-import { Box, Button, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Heading, Stack, Text } from '@chakra-ui/react';
 import { motion, useReducedMotion } from 'motion/react';
+import { LinkButton } from '@/components/atoms/LinkButton';
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -35,18 +35,10 @@ export function Hero() {
               小規模な案件でお力になれればと思っています
             </Text>
             <Stack direction="row" gap="4" pt="4">
-              <Button asChild size="lg" colorPalette="brand">
-                <NextLink href="/projects">プロジェクトを見る</NextLink>
-              </Button>
-              <Button asChild size="lg" variant="outline" colorPalette="brand">
-                <a
-                  href="https://github.com/kouta1211"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </Button>
+              <LinkButton href="/projects">プロジェクトを見る</LinkButton>
+              <LinkButton href="https://github.com/kouta1211" variant="outline">
+                GitHub
+              </LinkButton>
             </Stack>
           </Stack>
         </motion.div>

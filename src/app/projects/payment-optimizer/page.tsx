@@ -1,6 +1,6 @@
 import { Box, Code, Heading, Link, Stack, Text, Wrap } from '@chakra-ui/react';
 import { TechBadge } from '@/components/atoms/TechBadge';
-import { ScreenshotPlaceholder } from '@/components/atoms/ScreenshotPlaceholder';
+import { ProjectScreenshot } from '@/components/atoms/ProjectScreenshot';
 import { PageContainer } from '@/components/atoms/PageContainer';
 import { Reveal } from '@/components/atoms/Reveal';
 import { projects } from '@/lib/projects';
@@ -34,7 +34,11 @@ export default function PaymentOptimizerPage() {
       </Reveal>
 
       <Reveal delay={0.1}>
-        <ScreenshotPlaceholder label={project.name} />
+        <ProjectScreenshot
+          label={project.name}
+          src={project.screenshotSrc}
+          alt={`${project.name}の画面`}
+        />
       </Reveal>
 
       <Reveal delay={0.1}>
