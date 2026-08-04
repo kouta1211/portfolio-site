@@ -1,10 +1,28 @@
+'use client';
+
 import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Box, Flex, Link } from '@chakra-ui/react';
 import { ColorModeButton } from '@/components/ui/color-mode';
 
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+];
+
 export function Header() {
+  const pathname = usePathname();
+
   return (
-    <Box as="header" borderBottomWidth="1px" borderColor="border">
+    <Box
+      as="header"
+      position="sticky"
+      top="0"
+      zIndex="sticky"
+      borderBottomWidth="1px"
+      borderColor="border"
+      bg="bg"
+    >
       <Flex
         maxW="3xl"
         mx="auto"
@@ -17,12 +35,24 @@ export function Header() {
           <NextLink href="/">Portfolio Site</NextLink>
         </Link>
         <Flex gap="6" fontSize="sm" align="center">
-          <Link asChild>
-            <NextLink href="/">Home</NextLink>
-          </Link>
-          <Link asChild>
-            <NextLink href="/projects">Projects</NextLink>
-          </Link>
+          {navLinks.map((navLink) => {
+            const isActive = pathname === navLink.href;
+            return (
+              <Link
+                key={navLink.href}
+                asChild
+                fontWeight={isActive ? 'semibold' : 'normal'}
+                color={isActive ? 'brand.fg' : undefined}
+              >
+                <NextLink
+                  href={navLink.href}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {navLink.label}
+                </NextLink>
+              </Link>
+            );
+          })}
           <ColorModeButton />
         </Flex>
       </Flex>

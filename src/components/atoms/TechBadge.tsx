@@ -4,7 +4,7 @@ export function TechBadge({ label }: { label: string }) {
   return (
     <Badge
       variant="subtle"
-      colorPalette="gray"
+      colorPalette="brand"
       borderRadius="full"
       px="3"
       py="1"
