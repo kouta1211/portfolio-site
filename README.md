@@ -7,7 +7,7 @@
 - [名刺アプリ](https://github.com/kouta1211/meishi-application)
 - [キャッシュレス決済最適化アプリ](https://github.com/kouta1211/payment-optimizer)
 - [学習記録アプリ](https://github.com/kouta1211/studyRecord-application)
-- Tech Blog — 開発中のため、GitHubリポジトリは未公開・未デプロイ
+- [Tech Blog](https://github.com/kouta1211/tech_blog) — 開発中のため未デプロイ
 
 各プロジェクトの詳細は`/projects`以下の各ページ、または上記GitHubリポジトリの
 READMEを参照。
