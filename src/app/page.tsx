@@ -10,10 +10,11 @@ import {
 } from '@chakra-ui/react';
 import { Hero } from '@/components/organisms/Hero';
 import { ProjectCard } from '@/components/molecules/ProjectCard';
+import { FeaturedProjectCard } from '@/components/molecules/FeaturedProjectCard';
 import { TechBadge } from '@/components/atoms/TechBadge';
 import { PageContainer } from '@/components/atoms/PageContainer';
 import { Reveal } from '@/components/atoms/Reveal';
-import { projects } from '@/lib/projects';
+import { projects, splitFeatured } from '@/lib/projects';
 
 const techStack = [
   'Next.js',
@@ -27,6 +28,8 @@ const techStack = [
   'GitHub Actions',
   'Vercel',
 ];
+
+const { featured, others } = splitFeatured(projects);
 
 export default function Home() {
   return (
@@ -66,8 +69,9 @@ export default function Home() {
                 <NextLink href="/projects">すべて見る</NextLink>
               </Link>
             </Box>
+            {featured && <FeaturedProjectCard project={featured} />}
             <SimpleGrid columns={{ base: 1, sm: 2 }} gap="6">
-              {projects.map((project) => (
+              {others.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </SimpleGrid>

@@ -4,6 +4,7 @@
 
 ## 掲載しているプロジェクト
 
+- [Choreon](https://github.com/kouta1211/choreon) — 本番: https://choreon.vercel.app
 - [名刺アプリ](https://github.com/kouta1211/meishi-application)
 - [キャッシュレス決済最適化アプリ](https://github.com/kouta1211/payment-optimizer)
 - [学習記録アプリ](https://github.com/kouta1211/studyRecord-application)
