@@ -16,4 +16,14 @@ describe('Home', () => {
       screen.getByText('キャッシュレス決済最適化アプリ')
     ).toBeInTheDocument();
   });
+
+  it('Choreon を代表作として先頭に1回だけ出す', () => {
+    render(
+      <Provider>
+        <Home />
+      </Provider>
+    );
+    expect(screen.getByText('代表作')).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: 'Choreon' })).toHaveLength(1);
+  });
 });
