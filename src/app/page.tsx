@@ -34,8 +34,8 @@ const { featured, others } = splitFeatured(projects);
 export default function Home() {
   return (
     <>
-      <Hero />
-      <PageContainer pb="20" gap="20">
+      <Hero featured={featured} />
+      <PageContainer maxW="6xl" pb="20" gap="20">
         <Reveal>
           <Stack gap="4">
             <Heading size="xl">About</Heading>

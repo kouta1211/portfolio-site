@@ -24,7 +24,7 @@ export function Header() {
       bg="bg"
     >
       <Flex
-        maxW="3xl"
+        maxW="6xl"
         mx="auto"
         align="center"
         justify="space-between"
@@ -53,6 +53,13 @@ export function Header() {
               </Link>
             );
           })}
+          <Link
+            href="https://github.com/kouta1211"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </Link>
           <ColorModeButton />
         </Flex>
       </Flex>

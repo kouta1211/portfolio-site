@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <Box as="footer" borderTopWidth="1px" borderColor="border">
       <Flex
-        maxW="3xl"
+        maxW="6xl"
         mx="auto"
         align="center"
         justify="space-between"

@@ -22,6 +22,11 @@ describe('Header', () => {
     expect(projectsLink).toHaveAttribute('href', '/projects');
     expect(projectsLink).toHaveAttribute('aria-current', 'page');
     expect(homeLink).not.toHaveAttribute('aria-current');
+
+    const githubLink = screen.getByRole('link', { name: 'GitHub' });
+    expect(githubLink).toHaveAttribute('href', 'https://github.com/kouta1211');
+    expect(githubLink).toHaveAttribute('target', '_blank');
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
     expect(
       screen.getByRole('button', { name: 'Toggle color mode' })
     ).toBeInTheDocument();
