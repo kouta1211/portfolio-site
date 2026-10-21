@@ -48,4 +48,29 @@ describe('FeaturedProjectCard', () => {
 
     expect(screen.queryByRole('link', { name: 'サイトを開く' })).toBeNull();
   });
+
+  it('coverIndex で表紙の画像を選べる。その画像が無ければ1枚目に戻す', () => {
+    const twoShots = {
+      ...project,
+      screenshots: ['/screenshots/sample-1.png', '/screenshots/sample-2.png'],
+    };
+    const { unmount } = render(
+      <Provider>
+        <FeaturedProjectCard project={twoShots} coverIndex={1} />
+      </Provider>
+    );
+    expect(
+      screen.getByRole('img', { name: 'サンプルの画面' }).getAttribute('src')
+    ).toContain(encodeURIComponent('/screenshots/sample-2.png'));
+    unmount();
+
+    render(
+      <Provider>
+        <FeaturedProjectCard project={project} coverIndex={1} />
+      </Provider>
+    );
+    expect(
+      screen.getByRole('img', { name: 'サンプルの画面' }).getAttribute('src')
+    ).toContain(encodeURIComponent('/screenshots/sample-1.png'));
+  });
 });

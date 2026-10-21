@@ -15,9 +15,18 @@ import { TechBadge } from '@/components/atoms/TechBadge';
 import { Card } from '@/components/atoms/Card';
 import type { Project } from '@/lib/projects';
 
-/** 代表作だけを、スクリーンショット付きの全幅カードで出す */
-export function FeaturedProjectCard({ project }: { project: Project }) {
-  const cover = project.screenshots?.[0];
+/**
+ * 代表作だけを、スクリーンショット付きの全幅カードで出す。
+ * coverIndex は表紙にする画像の番号。トップでは Hero が1枚目を使うので、重ならないよう2枚目を渡す
+ */
+export function FeaturedProjectCard({
+  project,
+  coverIndex = 0,
+}: {
+  project: Project;
+  coverIndex?: number;
+}) {
+  const cover = project.screenshots?.[coverIndex] ?? project.screenshots?.[0];
 
   return (
     <Card

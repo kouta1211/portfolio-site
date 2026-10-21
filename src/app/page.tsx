@@ -50,7 +50,9 @@ export default function Home() {
                 <NextLink href="/projects">すべて見る</NextLink>
               </Link>
             </Box>
-            {featured && <FeaturedProjectCard project={featured} />}
+            {featured && (
+              <FeaturedProjectCard project={featured} coverIndex={1} />
+            )}
             <SimpleGrid columns={{ base: 1, sm: 2 }} gap="6">
               {others.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
