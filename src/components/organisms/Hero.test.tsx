@@ -16,7 +16,7 @@ describe('Hero', () => {
     ).toBeInTheDocument();
 
     const projectsLink = screen.getByRole('link', {
-      name: 'プロジェクトを見る',
+      name: '作ったものを見る',
     });
     expect(projectsLink).toHaveAttribute('href', '/projects');
 

@@ -31,11 +31,12 @@ export function Hero() {
               （まつもと こうた）
             </Text>
             <Text fontSize="lg" color="fg.muted" maxW="xl">
-              フロントエンド/フルスタック開発を学習中のエンジニア <br />
-              小規模な案件でお力になれればと思っています
+              React と Next.js で Web アプリを作っています。
+              <br />
+              小規模な開発のご相談を受け付けています。
             </Text>
             <Stack direction="row" gap="4" pt="4">
-              <LinkButton href="/projects">プロジェクトを見る</LinkButton>
+              <LinkButton href="/projects">作ったものを見る</LinkButton>
               <LinkButton href="https://github.com/kouta1211" variant="outline">
                 GitHub
               </LinkButton>

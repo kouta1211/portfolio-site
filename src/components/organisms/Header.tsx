@@ -32,7 +32,7 @@ export function Header() {
         py="4"
       >
         <Link asChild fontWeight="semibold">
-          <NextLink href="/">Portfolio Site</NextLink>
+          <NextLink href="/">ポートフォリオ</NextLink>
         </Link>
         <Flex gap="6" fontSize="sm" align="center">
           {navLinks.map((navLink) => {

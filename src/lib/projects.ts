@@ -33,7 +33,7 @@ export const projects: Project[] = [
     slug: 'choreon',
     name: 'Choreon',
     tagline:
-      '振付師はPCで隊形を組み、踊る人はスマホでURLを開くだけで自分の道順を曲に合わせて確かめられるWebアプリ',
+      '振付師が PC で組んだ隊形を、踊る人はスマホの URL 1本で、曲に合わせて確かめられる Web アプリ',
     techStack: [
       'Next.js',
       'React',
@@ -50,16 +50,16 @@ export const projects: Project[] = [
     liveUrl: 'https://choreon.vercel.app',
     featured: true,
     highlights: [
-      '「作る人は少なく、見る人は多い」から、作る画面（PC）と見る画面（スマホ・URL1本）を分けた',
-      'テスト1936件・独自のlintルール・文書の検査・DB側の権限設計で、品質を仕組みで守った',
-      'Claude Codeを主力にしつつ、規約と学びの記録でAIの出力を統制した',
+      '作る人は1〜2人、見る人は十数人。だから作る画面は PC、見る画面はスマホの URL 1本に分けた',
+      'テスト1936件と独自の lint ルールで、品質を注意ではなく仕組みで守った',
+      '実装は Claude Code と。規約と教訓の記録で、AI の書くコードを揃えた',
     ],
   },
   {
     slug: 'payment-optimizer',
     name: 'キャッシュレス決済最適化アプリ',
     tagline:
-      '支出ごとに最適な決済手段だったかを判定し、機会損失を可視化するアプリ',
+      '支出ごとに一番得だった決済手段を判定し、取り逃した還元額を見せるアプリ',
     techStack: [
       'Vite',
       'React',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     slug: 'study-record-app',
     name: '学習記録アプリ',
     tagline:
-      'タイトルと学習時間を記録し、一覧・登録・編集・削除ができる学習記録管理アプリ',
+      '学習内容と時間を記録するアプリ。Supabase を使って最初に作ったもの',
     techStack: [
       'Vite',
       'React',
@@ -99,7 +99,7 @@ export const projects: Project[] = [
   {
     slug: 'meishi-app',
     name: '名刺アプリ',
-    tagline: '名前・自己紹介・得意技術を1つのURLで共有できるデジタル名刺アプリ',
+    tagline: '自己紹介と得意技術を、URL 1本で渡せるデジタル名刺',
     techStack: [
       'Vite',
       'React',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
   {
     slug: 'tech-blog',
     name: 'Tech Blog',
-    tagline: 'QiitaとmicroCMSの記事をまとめて表示する個人テックブログ(開発中)',
+    tagline: 'Qiita と microCMS の記事を、1か所にまとめて読める個人ブログ',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'axios'],
     inProgress: true,
     screenshots: [

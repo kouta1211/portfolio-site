@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// TODO: 実際のタイトル・説明文に置き換える(現状はプレースホルダー)
 export const metadata: Metadata = {
-  title: 'Portfolio Site',
-  description: 'Personal portfolio built with Next.js',
+  title: 'ポートフォリオ | 松本 昂大',
+  description:
+    '松本 昂大のポートフォリオ。React と Next.js で作った Web アプリを載せています。',
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ja"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
