@@ -6,7 +6,6 @@
 | --- | --- | --- |
 | 代表作 | `src/components/molecules/FeaturedProjectCard.tsx` | [featured-project.md](featured-project.md) |
 | トップの Hero（代表作の画面つき） | `src/components/organisms/Hero.tsx` | [featured-project.md](featured-project.md) |
-| 実績の数字の帯 | `src/components/molecules/StatsBand.tsx` | [featured-project.md](featured-project.md) |
 | 作品カード | `src/components/molecules/ProjectCard.tsx` | — |
 | 作品の詳細ページ | `src/app/projects/<slug>/page.tsx` | 作品の追加は `add-project-to-portfolio` スキル |
 | スクショと拡大表示 | `src/components/atoms/ProjectScreenshot.tsx` | — |

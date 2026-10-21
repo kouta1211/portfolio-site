@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Provider } from '@/components/ui/provider';
-import { projects } from '@/lib/projects';
 import Home from './page';
 
 describe('Home', () => {
@@ -26,17 +25,5 @@ describe('Home', () => {
     );
     expect(screen.getByText('代表作')).toBeInTheDocument();
     expect(screen.getAllByRole('heading', { name: 'Choreon' })).toHaveLength(1);
-  });
-
-  it('数字の帯に、掲載している作品の数を projects から数えて出す', () => {
-    render(
-      <Provider>
-        <Home />
-      </Provider>
-    );
-    const label = screen.getByText('掲載している作品');
-    expect(label.previousElementSibling).toHaveTextContent(
-      String(projects.length)
-    );
   });
 });
