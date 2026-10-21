@@ -11,7 +11,6 @@ import {
 import { Hero } from '@/components/organisms/Hero';
 import { ProjectCard } from '@/components/molecules/ProjectCard';
 import { FeaturedProjectCard } from '@/components/molecules/FeaturedProjectCard';
-import { StatsBand } from '@/components/molecules/StatsBand';
 import { TechBadge } from '@/components/atoms/TechBadge';
 import { PageContainer } from '@/components/atoms/PageContainer';
 import { Reveal } from '@/components/atoms/Reveal';
@@ -36,7 +35,6 @@ export default function Home() {
   return (
     <>
       <Hero featured={featured} />
-      <StatsBand stats={featured?.stats ?? []} projectCount={projects.length} />
       <PageContainer maxW="6xl" pb="20" gap="20">
         <Reveal>
           <Stack gap="4">

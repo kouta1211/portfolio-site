@@ -1,9 +1,3 @@
-export type ProjectStat = {
-  // 表示する数字。桁区切りを含めた見た目のまま書く（例: '1,936'）
-  value: string;
-  label: string;
-};
-
 export type Project = {
   slug: string;
   name: string;
@@ -20,8 +14,6 @@ export type Project = {
   featured?: boolean;
   // 代表作のカードに出す要点（2〜3行）
   highlights?: string[];
-  // 代表作の実績の数字。トップの数字の帯に出す（作品の数は自動で足される）
-  stats?: ProjectStat[];
 };
 
 /** 代表作と、それ以外に分ける。代表作が無ければ featured は null */
@@ -58,14 +50,9 @@ export const projects: Project[] = [
     liveUrl: 'https://choreon.vercel.app',
     featured: true,
     highlights: [
+      '自分が受け持つダンスレッスンの発表会でフォーメーション作りに使い、生徒にもスマホで見てもらった',
       '作る人は1〜2人、見る人は十数人。だから作る画面は PC、見る画面はスマホの URL 1本に分けた',
-      'テスト1936件と独自の lint ルールで、品質を注意ではなく仕組みで守った',
-      '実装は Claude Code と。規約と教訓の記録で、AI の書くコードを揃えた',
-    ],
-    // 2026-09-29 時点（詳細ページの「品質」「概要」と同じ時点の数字）
-    stats: [
-      { value: '1,936', label: 'テスト（Vitest）' },
-      { value: '564', label: 'コミット / 8週間' },
+      'テストと独自の lint ルールで、品質を注意ではなく仕組みで守った',
     ],
   },
   {
