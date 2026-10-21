@@ -40,25 +40,6 @@ export default function Home() {
       <PageContainer maxW="6xl" pb="20" gap="20">
         <Reveal>
           <Stack gap="4">
-            <Heading size="xl">About</Heading>
-            <Text color="fg.muted">
-              大学で単位の管理に苦労したのがきっかけで、身の回りの不便をコードで減らしたいと思うようになりました。
-            </Text>
-            <Text color="fg.muted">
-              いまは React と Next.js で Web アプリを作っています。実装には
-              Claude Code
-              を使い、何を作るか・何をやめるかの判断と、品質を守る仕組みづくりは自分で持っています。
-            </Text>
-            <Wrap gap="2">
-              {techStack.map((tech) => (
-                <TechBadge key={tech} label={tech} />
-              ))}
-            </Wrap>
-          </Stack>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <Stack gap="4">
             <Box
               display="flex"
               alignItems="baseline"
@@ -75,6 +56,26 @@ export default function Home() {
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </SimpleGrid>
+          </Stack>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          {/* 6xl 幅いっぱいだと1行が長すぎて読みにくいので、文章の幅だけ絞る */}
+          <Stack gap="4" maxW="3xl">
+            <Heading size="xl">About</Heading>
+            <Text color="fg.muted">
+              大学で単位の管理に苦労したのがきっかけで、身の回りの不便をコードで減らしたいと思うようになりました。
+            </Text>
+            <Text color="fg.muted">
+              いまは React と Next.js で Web アプリを作っています。実装には
+              Claude Code
+              を使い、何を作るか・何をやめるかの判断と、品質を守る仕組みづくりは自分で持っています。
+            </Text>
+            <Wrap gap="2">
+              {techStack.map((tech) => (
+                <TechBadge key={tech} label={tech} />
+              ))}
+            </Wrap>
           </Stack>
         </Reveal>
       </PageContainer>

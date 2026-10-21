@@ -7,7 +7,11 @@
 | 作品の名前・一言説明・技術・リンク・代表作の要点 | `src/lib/projects.ts`（`Project` 型もここが正） |
 | 作品の詳細（概要・工夫した点・つまずいた点） | `src/app/projects/<slug>/page.tsx` に直書き |
 | 作品の一覧（GitHub リンク付き） | `README.md` の「掲載しているプロジェクト」 |
+| 実績の数字（テスト件数など） | `src/lib/projects.ts` の代表作の `stats`。作品の数は自動で数える |
 | 自己紹介・一言 | `src/components/organisms/Hero.tsx` と `src/app/page.tsx` の About |
+
+Hero の見出し（「踊る人のスマホに、隊形を届ける。」）と紹介文の一部は Choreon 向けの文言。
+代表作を替えたら、Hero の文言も書き直す。
 
 作品を足す・直すときは `add-project-to-portfolio` スキルの手順に従う。
 スキルの中の `Project` 型の例は古いことがある。型は `src/lib/projects.ts` を見る。
