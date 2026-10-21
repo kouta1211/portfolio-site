@@ -79,7 +79,7 @@ export default function ChoreonPage() {
             約6歩」のような言葉で読みながら、曲に合わせて確かめられます。
           </Text>
           <Text color="fg.muted">
-            企画から運用まで1人で行い、2026年8月5日〜9月29日で564コミット。
+            企画から運用まで1人で行い、2026年8月5日〜9月29日に作りました。
           </Text>
           <Text color="fg.muted">
             自分が受け持つダンスレッスンの発表会では、フォーメーションを Choreon
@@ -122,7 +122,8 @@ export default function ChoreonPage() {
           <Heading size="lg">品質を、注意ではなく仕組みで守る</Heading>
           <Box {...listProps}>
             <Box as="li">
-              テスト1936件（Vitest、2026年9月29日時点）。座標・時間・並び替えの計算は純粋関数にして、境界値までテストした。バグを直したときは、
+              座標・時間・並び替えの計算は純粋関数にして、Vitest
+              で境界値までテストした。バグを直したときは、
               <strong>修正を一度戻してテストが落ちるのを確かめてから</strong>
               追加した
             </Box>
