@@ -15,7 +15,7 @@ READMEを参照。
 
 ## 技術スタック
 
-- [Next.js](https://nextjs.org) 16 (App Router, Turbopack)
+- [Next.js](https://nextjs.org) 16 (App Router。dev / build は `--webpack` 指定で webpack を使う)
 - TypeScript
 - [Chakra UI](https://chakra-ui.com) v3
 - [Motion](https://motion.dev)(`motion/react`) — スクロール連動のフェードイン等のアニメーション
@@ -64,6 +64,8 @@ npm run dev
 - `npm run format:check` — フォーマット崩れがないかチェックのみ
 - `npm run test` — Vitestをwatchモードで実行
 - `npm run test:run` — Vitestを1回実行
+- `npm run check:docs` — Markdownが実在するファイル・識別子だけを指しているか検査
+- `npm run verify` — lint・型チェック・テスト・docs検査をまとめて実行
 
 ## デプロイ
 

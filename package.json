@@ -11,6 +11,8 @@
     "format:check": "prettier --check .",
     "test": "vitest",
     "test:run": "vitest run",
+    "check:docs": "node scripts/check-docs.mjs",
+    "verify": "npm run lint && tsc --noEmit && npm run test:run && npm run check:docs",
     "prepare": "husky"
   },
   "dependencies": {
