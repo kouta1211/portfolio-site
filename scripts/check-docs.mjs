@@ -15,6 +15,20 @@ const tracked = execFileSync(
   .split('\n')
   .filter(Boolean);
 
+// 実在の判定は「git で追跡しているか」で行う。ディスクにあるかで見ると、手元にだけある
+// ビルド成果物（.next/ など）で通ってしまい、CI では落ちる（2026-10-21 に実際に起きた）
+const trackedSet = new Set(tracked);
+const trackedDirs = new Set(
+  tracked.flatMap((f) => {
+    const parts = f.split('/').slice(0, -1);
+    return parts.map((_, i) => parts.slice(0, i + 1).join('/'));
+  })
+);
+const inRepo = (absPath) => {
+  const rel = path.relative(root, absPath).split(path.sep).join('/');
+  return trackedSet.has(rel) || trackedDirs.has(rel);
+};
+
 const mdFiles = tracked.filter((f) => f.endsWith('.md'));
 const codeFiles = tracked.filter((f) => /\.(ts|tsx|mjs|js|json|yml)$/.test(f));
 const codeText = codeFiles.map((f) => readFileSync(f, 'utf8')).join('\n');
@@ -28,6 +42,10 @@ const ALLOW = new Map([
   ['Pictures\\Screenshots', 'Windows の標準の保存先'],
   ['EnterPlanMode', 'Claude Code のツール名'],
   ['feature/add-', 'git のブランチ名の例'],
+  [
+    '.next/',
+    'Next.js のビルド成果物。git で追跡せず、CI では検査の時点でまだ無い',
+  ],
 ]);
 
 // 手順書の bash ブロックに入れてはいけないコマンド（終わらない）
@@ -67,14 +85,20 @@ function pathExists(p, fromFile) {
         re.test(f.split('/').slice(0, -1).join('/'))
     );
   }
-  const candidates = [
-    path.join(root, clean),
-    path.join(path.dirname(path.join(root, fromFile)), clean),
-    // import 先（next/image など）は拡張子なしで書くので、.js も試す
+  if (
+    inRepo(path.join(root, clean)) ||
+    inRepo(path.join(path.dirname(path.join(root, fromFile)), clean))
+  )
+    return true;
+  // node_modules だけはディスクで見る（CI でも npm ci の後にある）
+  if (clean === 'node_modules' || clean.startsWith('node_modules/'))
+    return existsSync(path.join(root, clean));
+  // import 先（next/image など）は拡張子なしで書くので、.js も試す
+  const inNodeModules = [
     path.join(root, 'node_modules', clean),
     path.join(root, 'node_modules', clean + '.js'),
   ];
-  if (candidates.some((c) => existsSync(c))) return true;
+  if (inNodeModules.some((c) => existsSync(c))) return true;
   // 見つからないときはベース名で探す（ファイル名でもディレクトリ名でもよい）
   const base = path.basename(clean);
   return tracked.some((f) => f.split('/').includes(base));
@@ -104,7 +128,7 @@ for (const file of mdFiles) {
       path.dirname(path.join(root, file)),
       decodeURIComponent(target)
     );
-    if (!existsSync(abs)) report(file, `リンク先が無い: ${m[1]}`);
+    if (!inRepo(abs)) report(file, `リンク先が無い: ${m[1]}`);
   }
 
   // 2・3. バッククォートの中身
