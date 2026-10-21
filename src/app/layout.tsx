@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Zen_Kaku_Gothic_New } from 'next/font/google';
 import { Box, Flex } from '@chakra-ui/react';
 import { Provider } from '@/components/ui/provider';
 import { Header } from '@/components/organisms/Header';
@@ -16,10 +16,18 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// TODO: 実際のタイトル・説明文に置き換える(現状はプレースホルダー)
+// 見出し用の日本語フォント。日本語は字が多くファイルが大きいので先読みしない
+const zenKaku = Zen_Kaku_Gothic_New({
+  variable: '--font-zen-kaku',
+  weight: ['700', '900'],
+  subsets: ['latin'],
+  preload: false,
+});
+
 export const metadata: Metadata = {
-  title: 'Portfolio Site',
-  description: 'Personal portfolio built with Next.js',
+  title: 'ポートフォリオ | 松本 昂大',
+  description:
+    '松本 昂大のポートフォリオ。React と Next.js で作った Web アプリを載せています。',
 };
 
 export default function RootLayout({
@@ -29,12 +37,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      lang="ja"
+      className={`${geistSans.variable} ${geistMono.variable} ${zenKaku.variable}`}
       suppressHydrationWarning
     >
       <body>
-        <Provider>
+        <Provider defaultTheme="dark">
           <Flex minH="100vh" direction="column">
             <Header />
             <Box as="main" flex="1" display="flex" flexDirection="column">

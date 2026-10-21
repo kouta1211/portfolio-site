@@ -44,9 +44,9 @@ export default function MeishiAppPage() {
         <Stack gap="2">
           <Heading size="lg">概要</Heading>
           <Text color="fg.muted">
-            名前・自己紹介・得意技術(複数選択)・GitHubやX等のSNSリンクを登録し、
-            1つのURLで共有できるデジタル名刺アプリ。React学習を目的に、
-            Supabaseを使った実運用に近い構成で作成した。
+            名前・自己紹介・得意技術・SNS のリンクを登録して、URL
+            1本で共有できるデジタル名刺。React の学習用に、Supabase
+            を使って実運用に近い構成で作った。
           </Text>
         </Stack>
       </Reveal>
@@ -64,17 +64,14 @@ export default function MeishiAppPage() {
             color="fg.muted"
           >
             <Box as="li">
-              自己紹介文はユーザーが自由入力するリッチテキストのため、DOMPurifyで
-              サニタイズしてからレンダリングし、XSSを防止した
+              自己紹介は自由入力のリッチテキストなので、DOMPurify
+              で無害化してから表示し、XSS を防いだ
             </Box>
             <Box as="li">
               <Code>router</Code> / <Code>domain</Code> / <Code>lib</Code> /{' '}
-              <Code>hooks</Code> にレイヤーを分け、画面・ビジネスロジック・
-              データアクセスの責務を分離した
+              <Code>hooks</Code> に分け、画面・ロジック・データ取得を切り離した
             </Box>
-            <Box as="li">
-              ID重複チェックや必須項目チェックを含むフォームバリデーション
-            </Box>
+            <Box as="li">ID の重複と必須項目をフォームで検証する</Box>
           </Box>
         </Stack>
       </Reveal>
@@ -92,15 +89,16 @@ export default function MeishiAppPage() {
             color="fg.muted"
           >
             <Box as="li">
-              SupabaseはRLSポリシーを設定するだけではAPIアクセスが通らず、
-              テーブルへの<Code>GRANT</Code>も別途必要だと判明した。以降は
-              テーブル作成・変更のたびにGRANTとRLS両方を確認するようにした
+              Supabase は RLS ポリシーを作るだけでは API が通らず、テーブルへの
+              <Code>GRANT</Code>
+              も要った。以降、テーブルを作るたびに GRANT と RLS
+              の両方を確認している
             </Box>
             <Box as="li">
-              PostgRESTの埋め込みselect構文(リレーション先テーブルの同時取得)は
-              外部キー制約に依存しており、スキーマ変更後に反映されないことが
-              あった。<Code>NOTIFY pgrst, &apos;reload schema&apos;</Code>{' '}
-              を実行してPostgRESTにスキーマの再読み込みを促すことで解決した
+              関連テーブルを一緒に取る PostgREST の埋め込み select
+              は外部キーに頼っていて、スキーマを変えた後に反映されないことがあった。
+              <Code>NOTIFY pgrst, &apos;reload schema&apos;</Code>{' '}
+              でスキーマを読み直させて解決した
             </Box>
           </Box>
         </Stack>

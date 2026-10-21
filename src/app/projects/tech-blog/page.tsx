@@ -58,10 +58,8 @@ export default function TechBlogPage() {
         <Stack gap="2">
           <Heading size="lg">概要</Heading>
           <Text color="fg.muted">
-            現在開発中のプロジェクトで、まだGitHubリポジトリの公開・デプロイは
-            行っていない。QiitaとmicroCMS(ヘッドレスCMS)の2つの外部コンテンツ
-            ソースの記事をまとめて表示する個人テックブログ。トップページでは
-            両方のソースを並行して取得し表示する。
+            Qiita と microCMS（ヘッドレス
+            CMS）の記事を、1か所にまとめて読める個人ブログ。開発中で、まだデプロイしていない。
           </Text>
         </Stack>
       </Reveal>
@@ -79,27 +77,22 @@ export default function TechBlogPage() {
             color="fg.muted"
           >
             <Box as="li">
-              Qiita APIのアクセストークンをクライアントに露出させないため、
-              Next.jsのRoute Handler(<Code>app/api/qiita/route.ts</Code>)
-              を経由してサーバー側から呼び出す構成にした
+              Qiita API のトークンをブラウザに出さないよう、Route Handler（
+              <Code>app/api/qiita/route.ts</Code>）を通してサーバーから呼ぶ
             </Box>
             <Box as="li">
-              Qiitaの記事にはサムネイル画像が無いため、記事本文(HTML)から 最初の
+              Qiita の記事にはサムネイルが無いので、本文の最初の
               <Code>img</Code>
-              タグを正規表現で抽出してサムネイルとして使い、見つからない場合は
-              投稿者のアイコン画像にフォールバックするようにした
+              を抜き出して使う。無ければ投稿者のアイコンを出す
             </Box>
             <Box as="li">
-              ブログ詳細ページはNext.jsの<Code>&quot;use cache&quot;</Code>
-              ディレクティブでキャッシュしつつ、Server Action(
-              <Code>revalidatePath</Code>
-              )を使った「再読み込み」ボタンでMicroCMS側の更新を手動で
-              反映できるようにした
+              記事ページは<Code>&quot;use cache&quot;</Code>
+              でキャッシュし、Server Action（<Code>revalidatePath</Code>
+              ）の「再読み込み」ボタンで microCMS の更新を反映できる
             </Box>
             <Box as="li">
-              トップページはQiita・microCMSそれぞれをasync Server Component +
-              Suspenseで並行取得し、個別にスケルトン表示することで、片方の
-              取得が遅くてももう片方の表示をブロックしないようにした
+              トップは Qiita と microCMS を別々の Suspense
+              で並行して取得する。片方が遅くても、もう片方は先に表示される
             </Box>
           </Box>
         </Stack>
@@ -110,11 +103,9 @@ export default function TechBlogPage() {
           <Heading size="lg">つまずいた点と解決策</Heading>
           <Text color="fg.muted">
             <Code>next/image</Code>
-            は許可していない外部ドメインの画像を表示しようとするとエラーに
-            なる。Qiita・microCMS・GitHubアバターの3つの外部ドメインから
-            画像を読み込む必要があったため、<Code>next.config.ts</Code>の
-            <Code>images.remotePatterns</Code>
-            に該当ドメインを明示的に登録することで解決した。
+            は、許可していない外部ドメインの画像を表示できません。Qiita・microCMS・GitHub
+            アバターの3つのドメインを<Code>next.config.ts</Code>の
+            <Code>images.remotePatterns</Code>に登録して解決しました。
           </Text>
         </Stack>
       </Reveal>
