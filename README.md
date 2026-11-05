@@ -9,6 +9,7 @@
 - [キャッシュレス決済最適化アプリ](https://github.com/kouta1211/payment-optimizer)
 - [学習記録アプリ](https://github.com/kouta1211/studyRecord-application)
 - [Tech Blog](https://github.com/kouta1211/tech_blog) — 開発中のため未デプロイ
+- ゲーム解析ビューア — 大学の研究で使うためコードは非公開
 
 各プロジェクトの詳細は`/projects`以下の各ページ、または上記GitHubリポジトリの
 READMEを参照。
