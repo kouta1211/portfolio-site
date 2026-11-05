@@ -129,4 +129,11 @@ export const projects: Project[] = [
     ],
     repoUrl: 'https://github.com/kouta1211/tech_blog',
   },
+  {
+    slug: 'game-explorer',
+    name: 'ゲーム解析ビューア',
+    tagline: '盤面を入力すると、どちらが勝つかが分かる画面',
+    techStack: ['Vite', 'React', 'TypeScript', 'Chakra UI', 'Python'],
+    screenshots: ['/screenshots/game-explorer-1.png'],
+  },
 ];
